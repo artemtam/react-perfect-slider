@@ -8,7 +8,8 @@
   "scripts": {
     "build": "microbundle --jsx React.createElement --external react ./src/index.tsx --output dist",
     "start": "microbundle --jsx React.createElement --external react ./src/index.tsx --output dist --watch",
-    "lint": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\""
+    "lint": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\"",
+    "release": "release-it"
   },
   "repository": {
     "type": "git",
