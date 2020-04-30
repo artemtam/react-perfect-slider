@@ -1,0 +1,39 @@
+{
+  "name": "react-perfect-slider",
+  "version": "0.0.1",
+  "description": "High-efficient and perfectly designed carousel/slider component.",
+  "main": "dist/react-perfect-slider.umd.js",
+  "module": "dist/react-perfect-slider.esm.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "microbundle --jsx React.createElement --external react ./src/index.tsx --output dist",
+    "start": "microbundle --jsx React.createElement --external react ./src/index.tsx --output dist --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artemtam/react-perfect-slider.git"
+  },
+  "keywords": [
+    "carousel",
+    "slider",
+    "react"
+  ],
+  "author": "Artem Tamoian <hello@artemtam.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/artemtam/react-perfect-slider/issues"
+  },
+  "homepage": "https://github.com/artemtam/react-perfect-slider#readme",
+  "dependencies": {},
+  "peerDependencies": {
+    "react": ">=^16.8",
+    "react-dom": ">=^16.8"
+  },
+  "devDependencies": {
+    "@types/node": "^13.11.1",
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "^16.9.6",
+    "microbundle": "^0.12.0-next.8",
+    "node-sass": "^4.13.1"
+  }
+}
