@@ -1,0 +1,6 @@
+{
+  "hooks": {
+    "before:init": ["npm run lint"],
+    "after:bump": "npm run build"
+  }
+}
