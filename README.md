@@ -16,7 +16,7 @@ Add `react-perfect-slider` to your project running the following in your project
 
 ```shell script
 npm i react-perfect-slider
-``` 
+```
 
 Import Slider component and necessary styles:
 
@@ -38,7 +38,7 @@ Just pass all slides as children and add necessary controls:
 </Slider>
 ```
 
-Take a look on the working example: 
+Take a look on the working example:
 
 ## API
 
@@ -76,4 +76,4 @@ You can place these components relatively to the Slider container – just make 
 
 ## Contribution
 
-There are still some things to implement, such as touch support and accessibility So feel free to contribute to the project, and use issues to share feedback. 
+There are still some things to implement, such as touch support and accessibility So feel free to contribute to the project, and use issues to share feedback.

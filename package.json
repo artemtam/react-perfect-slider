@@ -7,7 +7,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "microbundle --jsx React.createElement --external react ./src/index.tsx --output dist",
-    "start": "microbundle --jsx React.createElement --external react ./src/index.tsx --output dist --watch"
+    "start": "microbundle --jsx React.createElement --external react ./src/index.tsx --output dist --watch",
+    "lint": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\""
   },
   "repository": {
     "type": "git",
@@ -33,6 +34,16 @@
     "@types/node": "^13.11.1",
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.6",
+    "@typescript-eslint/eslint-plugin": "^2.30.0",
+    "@typescript-eslint/parser": "^2.30.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-react-app": "^5.2.1",
+    "eslint-plugin-flowtype": "^4.7.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^3.0.0",
     "microbundle": "^0.12.0-next.8",
     "node-sass": "^4.13.1"
   }
