@@ -1,9 +1,7 @@
 import React from 'react';
 import Slider from 'react-perfect-slider';
 
-import 'react-perfect-slider/dist/react-perfect-slider.css';
-
-import styles from './App.module.scss';
+import styles from './App.module.css';
 
 const App = () => (
     <div className={styles.container}>

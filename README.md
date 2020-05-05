@@ -1,4 +1,4 @@
-# react-perfect-slider
+# react-perfect-slider ![Minified and zipped size](https://badgen.net/bundlephobia/minzip/react-perfect-slider)
 
 High-efficient and perfectly designed carousel/slider component.
 
@@ -22,7 +22,6 @@ Import Slider component and necessary styles:
 
 ```typescript jsx
 import Slider from 'react-perfect-slider';
-import 'react-perfect-slider/dist/react-perfect-slider.css';
 ```
 
 Just pass all slides as children and add necessary controls:

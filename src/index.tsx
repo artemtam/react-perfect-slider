@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 
 import useInterval from './useInterval';
 
-import styles from './Slider.module.scss';
-
 interface SliderProps {
   children: React.ReactNodeArray;
   transitionDuration?: number;
@@ -65,26 +63,33 @@ const Slider: React.FC<SliderProps> = ({
   }, [transitionDuration, realWanted]);
 
   return (
-    <div className={styles.container}>
-      <div
-        className={styles.slider}
-        style={{
-          width: `${(length + 2) * 100}%`,
-          transitionTimingFunction: transitionFunction,
-          transitionDuration: wanted !== current ? `${transitionDuration}ms` : '0ms',
-          transform: `translateX(-${((wanted + 1) / (length + 2)) * 100}%)`,
-        }}
+    <div style={{
+      position: 'relative',
+      width: '100%',
+      overflow: 'hidden',
+    }}
+    >
+      <div style={{
+        display: 'flex',
+        width: `${(length + 2) * 100}%`,
+        transitionProperty: 'transform',
+        willChange: 'transform',
+        transitionTimingFunction: transitionFunction,
+        transitionDuration: wanted !== current ? `${transitionDuration}ms` : '0ms',
+        transform: `translateX(-${((wanted + 1) / (length + 2)) * 100}%)`,
+        WebkitTransform: `translateX(-${((wanted + 1) / (length + 2)) * 100}%)`,
+      }}
       >
-        <div className={styles.slide}>
+        <div style={{ width: '100%' }}>
           {children[length - 1]}
         </div>
         {children.map((slide, index) => (
           // eslint-disable-next-line react/no-array-index-key
-          <div className={styles.slide} key={index}>
+          <div style={{ width: '100%' }} key={index}>
             {slide}
           </div>
         ))}
-        <div className={styles.slide}>
+        <div style={{ width: '100%' }}>
           {children[0]}
         </div>
       </div>
