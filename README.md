@@ -37,8 +37,6 @@ Just pass all slides as children and add necessary controls:
 </Slider>
 ```
 
-Take a look on the working example:
-
 ## API
 
 The single `Slider` component has the following properties:
