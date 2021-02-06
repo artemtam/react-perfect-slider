@@ -12,6 +12,7 @@
   "scripts": {
     "build": "microbundle --jsx React.createElement --external react ./src/index.tsx --output dist",
     "start": "microbundle --jsx React.createElement --external react ./src/index.tsx --output dist --watch",
+    "type-check": "tsc --noEmit",
     "lint": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\"",
     "release": "release-it"
   },
@@ -36,20 +37,21 @@
     "react-dom": ">=^16.8"
   },
   "devDependencies": {
-    "@types/node": "^14.6.4",
-    "@types/react": "^16.9.49",
-    "@types/react-dom": "^16.9.8",
-    "@typescript-eslint/eslint-plugin": "^4.0.1",
-    "@typescript-eslint/parser": "^4.0.1",
-    "eslint": "^7.8.1",
-    "eslint-config-airbnb": "^18.2.0",
-    "eslint-config-react-app": "^5.2.1",
+    "@types/node": "^14.14.25",
+    "@types/react": "^17.0.1",
+    "@types/react-dom": "^17.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.14.2",
+    "@typescript-eslint/parser": "^4.14.2",
+    "eslint": "^7.19.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-airbnb-typescript": "^12.3.1",
+    "eslint-config-react-app": "^6.0.0",
     "eslint-plugin-flowtype": "^5.2.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-react": "^7.20.6",
-    "eslint-plugin-react-hooks": "^4.1.0",
-    "microbundle": "^0.12.3",
-    "release-it": "^14.0.2"
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "microbundle": "^0.13.0",
+    "release-it": "^14.3.0"
   }
 }
