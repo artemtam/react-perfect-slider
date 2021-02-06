@@ -52,6 +52,6 @@
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "microbundle": "^0.13.0",
-    "release-it": "^14.3.0"
+    "semantic-release": "^17.3.7"
   }
 }

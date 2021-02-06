@@ -1,17 +1,16 @@
-name: CI
+name: Test
 
 on:
   push:
-  pull_request:
-
-  workflow_dispatch:
 
 jobs:
-  build:
+  test:
+    name: Test
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        usses: actions/checkout@v2
 
       - name: Setup Node.js
         uses: actions/setup-node@v2.1.3
@@ -27,5 +26,5 @@ jobs:
       - name: Run lint
         run: npm run lint
 
-      - name: Build
+      - name: Run build
         run: npm run build
