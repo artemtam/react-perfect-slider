@@ -1,5 +1,5 @@
 {
-  "branches": ["master", "next"],
+  "branches": ["master", "beta", "alpha"],
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
