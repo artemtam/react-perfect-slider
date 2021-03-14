@@ -43,13 +43,13 @@
     "@testing-library/react-hooks": "^5.1.0",
     "@testing-library/user-event": "^12.8.3",
     "@types/jest": "^26.0.20",
-    "@types/node": "^14.14.31",
-    "@types/react": "^17.0.2",
-    "@types/react-dom": "^17.0.1",
-    "@typescript-eslint/eslint-plugin": "^4.16.1",
-    "@typescript-eslint/parser": "^4.16.1",
+    "@types/node": "^14.14.34",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.17.0",
+    "@typescript-eslint/parser": "^4.17.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.21.0",
+    "eslint": "^7.22.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-typescript": "^12.3.1",
     "eslint-config-react-app": "^6.0.0",
@@ -62,7 +62,7 @@
     "microbundle": "^0.13.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "semantic-release": "^17.4.1",
+    "semantic-release": "^17.4.2",
     "ts-jest": "^26.5.3"
   }
 }
