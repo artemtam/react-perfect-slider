@@ -1,65 +1,20 @@
 {
   "extends": [
+    "airbnb-typescript",
+    "airbnb/hooks",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "react-app",
-    "airbnb"
+    "react-app"
   ],
-  "parser": "@typescript-eslint/parser",
-  "rules": {
-    "react/jsx-filename-extension": [
-      "error",
-      {
-        "extensions": [
-          ".jsx",
-          ".tsx"
-        ]
-      }
-    ],
-    "import/no-unresolved": [
-      "error",
-      {
-        "ignore": [
-          "^react$"
-        ]
-      }
-    ],
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "js": "never",
-        "mjs": "never",
-        "jsx": "never",
-        "ts": "never",
-        "tsx": "never",
-        "d.ts": "never"
-      }
-    ]
+  "parserOptions": {
+    "project": "./tsconfig.json"
   },
-  "overrides": [
-    {
-      "files": [
-        "src/**/*.{ts,tsx}"
-      ],
-      "rules": {
-        "react/prop-types": "off"
-      }
-    }
-  ],
   "settings": {
-    "import/resolver": {
-      "node": {
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".ts",
-          ".tsx",
-          ".d.ts"
-        ],
-        "paths": [
-          "src"]
-      }
+    "react": {
+      "version": "17"
     }
+  },
+  "rules": {
+    "react/prop-types": "off"
   }
 }
