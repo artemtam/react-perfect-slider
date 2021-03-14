@@ -12,7 +12,7 @@
   "scripts": {
     "build": "microbundle --jsx React.createElement --external react ./src/index.tsx --output dist",
     "start": "microbundle --jsx React.createElement --external react ./src/index.tsx --output dist --watch",
-    "test": "jest",
+    "test": "jest --coverage",
     "typecheck": "tsc --noEmit",
     "lint": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\""
   },
@@ -41,6 +41,7 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/react-hooks": "^5.1.0",
+    "@testing-library/user-event": "^12.8.3",
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.31",
     "@types/react": "^17.0.2",
