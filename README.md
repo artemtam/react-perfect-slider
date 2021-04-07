@@ -1,4 +1,4 @@
-# react-perfect-slider ![Build Workflow](https://github.com/artemtam/react-perfect-slider/actions/workflows/main.yml/badge.svg) [![Coverage Status](https://coveralls.io/repos/github/artemtam/react-perfect-slider/badge.svg?branch=beta)](https://coveralls.io/github/artemtam/react-perfect-slider) ![Minified and zipped size](https://badgen.net/bundlephobia/minzip/react-perfect-slider)
+# react-perfect-slider ![Build Workflow](https://github.com/artemtam/react-perfect-slider/actions/workflows/main.yml/badge.svg) [![Coverage Status](https://coveralls.io/repos/github/artemtam/react-perfect-slider/badge.svg?branch=beta)](https://coveralls.io/github/artemtam/react-perfect-slider)
 
 High-efficient and perfectly designed carousel/slider component.
 
