@@ -1,6 +1,6 @@
 {
   "name": "react-perfect-slider",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "High-efficient and perfectly designed carousel/slider component.",
   "main": "dist/react-perfect-slider.umd.js",
   "module": "dist/react-perfect-slider.esm.js",
