@@ -13,5 +13,8 @@
       "matchUpdateTypes": ["patch", "minor"],
       "groupName": "non-major dependencies"
     }
+  ],
+  "schedule": [
+    "before 7am on the first day of the month"
   ]
 }
