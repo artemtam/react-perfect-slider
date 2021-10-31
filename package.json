@@ -31,7 +31,6 @@
     "url": "https://github.com/artemtam/react-perfect-slider/issues"
   },
   "homepage": "https://github.com/artemtam/react-perfect-slider#readme",
-  "dependencies": {},
   "peerDependencies": {
     "react": ">=16.8",
     "react-dom": ">=16.8"
