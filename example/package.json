@@ -1,0 +1,22 @@
+{
+  "name": "react-perfect-slider-demo",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@vitejs/plugin-react": "^5.1.1",
+    "vite": "npm:rolldown-vite@latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-perfect-slider": "^3.0.0-beta.1"
+  }
+}
