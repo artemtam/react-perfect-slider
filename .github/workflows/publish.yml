@@ -81,8 +81,4 @@ jobs:
 
       - name: Publish to npm
         run: |
-          npm publish --tag ${{ steps.publish-tag.outputs.tag }} --provenance --access public --dry-run
-
-      - name: Create attestation
-        run: |
-          npm audit signatures
+          npm publish --tag ${{ steps.publish-tag.outputs.tag }} --provenance --access public
