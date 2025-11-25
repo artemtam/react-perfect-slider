@@ -3,6 +3,7 @@
     "react",
     "unicorn",
     "typescript",
+    "import",
     "oxc"
   ]
 }

@@ -12,7 +12,7 @@
   "scripts": {
     "build": "microbundle --jsx React.createElement --external react ./src/index.tsx --output dist",
     "start": "microbundle --jsx React.createElement --external react ./src/index.tsx --output dist --watch",
-    "test": "jest --coverage",
+    "test": "vitest",
     "typecheck": "tsc --noEmit",
     "lint": "oxlint \"src/**/*.{ts,tsx}\""
   },
@@ -32,26 +32,25 @@
   },
   "homepage": "https://github.com/artemtam/react-perfect-slider#readme",
   "peerDependencies": {
-    "react": ">=16.8",
-    "react-dom": ">=16.8"
+    "react": ">=17",
+    "react-dom": ">=17"
   },
   "devDependencies": {
     "@semantic-release/git": "10.0.1",
-    "@testing-library/jest-dom": "5.16.4",
-    "@testing-library/react": "12.1.5",
-    "@testing-library/react-hooks": "7.0.2",
-    "@testing-library/user-event": "13.5.0",
-    "@types/jest": "27.5.2",
-    "@types/node": "16.11.42",
-    "@types/react": "17.0.47",
-    "@types/react-dom": "17.0.17",
-    "jest": "27.5.1",
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.0",
+    "@testing-library/user-event": "14.6.1",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "@vitest/coverage-v8": "4.0.13",
+    "jsdom": "^27.2.0",
     "microbundle": "0.15.0",
-    "oxlint": "^1.20.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
+    "oxlint": "^1.30.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
     "semantic-release": "19.0.3",
-    "ts-jest": "27.1.5",
-    "ts-node": "10.8.1"
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.13"
   }
 }
