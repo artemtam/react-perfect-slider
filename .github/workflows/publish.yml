@@ -3,9 +3,6 @@ name: Publish
 on:
   release:
     types: [created]
-  push:
-    branches:
-      - master
 
 jobs:
   publish:
@@ -42,32 +39,21 @@ jobs:
           node-version: '22'
           registry-url: 'https://registry.npmjs.org'
 
+      - name: Ensure the latest npm for trusted publishing
+        run: npm install -g npm@latest
+
       - name: Determine publish tag
         id: publish-tag
         run: |
-          if [[ "${{ github.event_name }}" == "release" ]]; then
-            if [[ "${{ github.event.release.prerelease }}" == "true" ]]; then
-              echo "tag=beta" >> $GITHUB_OUTPUT
-              echo "Publishing pre-release as beta"
-            else
-              echo "tag=latest" >> $GITHUB_OUTPUT
-              echo "Publishing stable release as latest"
-            fi
+          if [[ "${{ github.event.release.prerelease }}" == "true" ]]; then
+            echo "tag=beta" >> $GITHUB_OUTPUT
+            echo "Publishing pre-release as beta"
           else
-            echo "tag=alpha" >> $GITHUB_OUTPUT
-            echo "Publishing commit to master as alpha"
+            echo "tag=latest" >> $GITHUB_OUTPUT
+            echo "Publishing stable release as latest"
           fi
 
-      - name: Update package version for alpha
-        if: github.event_name == 'push'
-        run: |
-          CURRENT_VERSION=$(node -p "require('./package.json').version")
-          ALPHA_VERSION="${CURRENT_VERSION}-alpha.$(date +%Y%m%d%H%M%S)"
-          npm version $ALPHA_VERSION --no-git-tag-version
-          echo "Publishing version: $ALPHA_VERSION"
-
-      - name: Verify version matches tag for releases
-        if: github.event_name == 'release'
+      - name: Verify version matches tag
         run: |
           PACKAGE_VERSION=$(node -p "require('./package.json').version")
           TAG_VERSION=${GITHUB_REF#refs/tags/v}
