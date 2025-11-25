@@ -1,0 +1,88 @@
+name: Publish
+
+on:
+  release:
+    types: [created]
+  push:
+    branches:
+      - master
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Run tests
+        run: |
+          bun run typecheck
+          bun run lint
+          bun run test
+
+      - name: Build package
+        run: bun run build
+
+      - name: Setup Node.js for npm publish
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Determine publish tag
+        id: publish-tag
+        run: |
+          if [[ "${{ github.event_name }}" == "release" ]]; then
+            if [[ "${{ github.event.release.prerelease }}" == "true" ]]; then
+              echo "tag=beta" >> $GITHUB_OUTPUT
+              echo "Publishing pre-release as beta"
+            else
+              echo "tag=latest" >> $GITHUB_OUTPUT
+              echo "Publishing stable release as latest"
+            fi
+          else
+            echo "tag=alpha" >> $GITHUB_OUTPUT
+            echo "Publishing commit to master as alpha"
+          fi
+
+      - name: Update package version for alpha
+        if: github.event_name == 'push'
+        run: |
+          CURRENT_VERSION=$(node -p "require('./package.json').version")
+          ALPHA_VERSION="${CURRENT_VERSION}-alpha.$(date +%Y%m%d%H%M%S)"
+          npm version $ALPHA_VERSION --no-git-tag-version
+          echo "Publishing version: $ALPHA_VERSION"
+
+      - name: Verify version matches tag for releases
+        if: github.event_name == 'release'
+        run: |
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          TAG_VERSION=${GITHUB_REF#refs/tags/v}
+          TAG_VERSION=${TAG_VERSION#v}
+
+          if [[ "$PACKAGE_VERSION" != "$TAG_VERSION" ]]; then
+            echo "Error: package.json version ($PACKAGE_VERSION) does not match tag ($TAG_VERSION)"
+            exit 1
+          fi
+          echo "Version verified: $PACKAGE_VERSION"
+
+      - name: Publish to npm
+        run: |
+          npm publish --tag ${{ steps.publish-tag.outputs.tag }} --provenance --access public --dry-run
+
+      - name: Create attestation
+        run: |
+          npm audit signatures

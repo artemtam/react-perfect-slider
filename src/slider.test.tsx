@@ -1,12 +1,10 @@
-import React from 'react';
-
-import '@testing-library/jest-dom';
+import { vi, describe, test, expect } from 'vitest';
 import { screen, render, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import Slider from './Slider';
+import '@testing-library/jest-dom';
 
-jest.useFakeTimers();
+import Slider from './slider';
 
 describe('Slider', () => {
   test('renders', () => {
@@ -40,18 +38,22 @@ describe('Slider', () => {
     expect(screen.getByText('Go to the second slide')).toBeInTheDocument();
   });
 
-  test('respects controls', () => {
+  test('respects controls', async () => {
     render(
       <Slider
         autoplay={false}
-        renderControls={(next, previous, goTo, slide) => (
-          <>
-            <button onClick={previous} type="button">Previous</button>
-            <button onClick={next} type="button">Next</button>
-            <button onClick={() => goTo(2)} type="button">Go to the second slide</button>
-            <span data-testid="slide">{slide}</span>
-          </>
-        )}
+        transitionDuration={0}
+        renderControls={(next, previous, goTo, slide) => {
+          return (
+            <>
+              <button onClick={previous} type="button">Previous</button>
+              <button onClick={next} type="button">Next</button>
+              <button onClick={() => goTo(2)} type="button">Go to the second slide</button>
+              <span data-testid="slide">{slide}</span>
+            </>
+          );
+        }
+        }
       >
         <div>Slide 1</div>
         <div>Slide 2</div>
@@ -67,43 +69,25 @@ describe('Slider', () => {
 
     expect(currentSlide).toHaveTextContent('0');
 
-    act(() => {
-      userEvent.click(nextButton);
-      jest.runAllTimers();
-    });
-
+    await userEvent.click(nextButton);
     expect(currentSlide).toHaveTextContent('1');
 
-    act(() => {
-      userEvent.click(nextButton);
-      jest.runAllTimers();
-    });
-
+    await userEvent.click(nextButton);
     expect(currentSlide).toHaveTextContent('2');
 
-    act(() => {
-      userEvent.click(previousButton);
-      jest.runAllTimers();
-    });
-
+    await userEvent.click(previousButton);
     expect(currentSlide).toHaveTextContent('1');
 
-    act(() => {
-      userEvent.click(previousButton);
-      jest.runAllTimers();
-    });
-
+    await userEvent.click(previousButton);
     expect(currentSlide).toHaveTextContent('0');
 
-    act(() => {
-      userEvent.click(goToSecondButton);
-      jest.runAllTimers();
-    });
-
+    await userEvent.click(goToSecondButton);
     expect(currentSlide).toHaveTextContent('2');
   });
 
   test('changes slides regularly when autoplay is enabled', () => {
+    vi.useFakeTimers();
+
     render(
       <Slider
         autoplayDuration={5000}
@@ -121,14 +105,17 @@ describe('Slider', () => {
     expect(currentSlide).toHaveTextContent('0');
 
     act(() => {
-      jest.advanceTimersByTime(4000);
+      vi.advanceTimersByTime(4000);
     });
+
     expect(currentSlide).toHaveTextContent('0');
 
     act(() => {
-      jest.advanceTimersByTime(1000);
+      vi.advanceTimersByTime(1000);
     });
 
     expect(currentSlide).toHaveTextContent('1');
   });
+
+  vi.useRealTimers();
 });

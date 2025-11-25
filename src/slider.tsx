@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import type { ReactNode, FC } from 'react';
+import { useEffect, useState } from 'react';
 
-import useInterval from './useInterval';
+import useInterval from './use-interval';
 
 interface SliderProps {
-  children: React.ReactNodeArray;
+  children: ReactNode[];
   transitionDuration?: number;
   transitionFunction?: string;
   autoplay?: boolean;
@@ -14,16 +15,16 @@ interface SliderProps {
     goTo: (slide: number) => void,
     slide: number,
     total: number,
-  ) => React.ReactNode | React.ReactNodeArray;
+  ) => ReactNode;
 }
 
-const Slider: React.FC<SliderProps> = ({
+const Slider: FC<SliderProps> = ({
   children,
   autoplay = true,
   transitionDuration = 1000,
   transitionFunction = 'ease',
   autoplayDuration = 5000,
-  renderControls = (): void => { /* placeholder */ },
+  renderControls = () => null,
 }) => {
   // current slide
   const [current, setCurrent] = useState(0);
@@ -83,12 +84,13 @@ const Slider: React.FC<SliderProps> = ({
         <div style={{ width: '100%' }}>
           {children[length - 1]}
         </div>
+
         {children.map((slide, index) => (
-          // eslint-disable-next-line react/no-array-index-key
           <div style={{ width: '100%' }} key={index}>
             {slide}
           </div>
         ))}
+
         <div style={{ width: '100%' }}>
           {children[0]}
         </div>
