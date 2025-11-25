@@ -1,6 +1,6 @@
 {
   "name": "react-perfect-slider",
-  "version": "3.0.0-beta.1",
+  "version": "3.0.0",
   "description": "High-efficient and perfectly designed carousel/slider component.",
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
